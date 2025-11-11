@@ -13,8 +13,8 @@ class THeader extends HTMLElement {
 
                     <div class="nav-links">
                         <a href="index.html" class="${selected === "home" ? "selectedPage" : ""}">Home</a>
-						<a href="contact.html" class="${selected === "cont  act" ? "selectedPage" : ""}">Contact</a>
-						<a href="projects.html" class="${selected === "projects" ? "selectedPage" : ""}">Projects</a>
+                        <a href="contact.html" class="${selected === "cont  act" ? "selectedPage" : ""}">Contact</a>
+                        <a href="projects.html" class="${selected === "projects" ? "selectedPage" : ""}">Projects</a>
                     </div>
 
                     <div class="nav-actions">
@@ -61,17 +61,30 @@ customElements.define("t-header", THeader);
 class TFooter extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
-            <footer>
-                <div class="footer">
-
+            <footer class="footer">
+                <div class="footer-content">
+                    <div class="footer-left">
+                        &copy; <span id="footer-year"></span> Ceejay Cicala.
+                    </div>
+                    <div class="footer-right">
+                        <a href="/license.txt" class="footer-link">license.txt</a>
+                        <span class="footer-separator">|</span>
+                        <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" class="footer-link">CC BY-NC-SA 4.0</a>
+                    </div>
                 </div>
             </footer>
         `;
     }
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+    const footerYear = document.getElementById('footer-year');
+    if (footerYear) footerYear.textContent = new Date().getFullYear();
+});
 
 customElements.define("t-footer", TFooter);
+
+
 
 
 
