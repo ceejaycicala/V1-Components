@@ -1,0 +1,27 @@
+.hero-wrapper {
+    padding: 8px;
+}
+
+.hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: calc(100vh - 16px);
+    padding: 4rem 10%;
+    /* margin: 5px 5px 5px 5px; */
+    border-radius: 30px;
+    /* background-image: var(--gradient-custom); */
+    background-color: hsla(0, 0%, 100%, 1);
+        background-image: radial-gradient(circle at 91% 11%, hsla(241.99999999999997, 100%, 88%, 0.66) 4.038772213247173%, transparent 37.2265767974114%), radial-gradient(circle at 66% 37%, hsla(191.91176470588238, 100%, 88%, 1) 0%, transparent 63.33640956108327%), radial-gradient(circle at 36% 87%, hsla(136.32352941176467, 100%, 88%, 1) 12.107536057085522%, transparent 63.33640956108327%);
+        background-blend-mode: normal, normal, normal;
+    /* background-color: hsla(14.588235294117649, 100%, 50%, 1);
+        background-image: radial-gradient(circle at 93% 95%, hsla(283.27868852459017, 100%, 23%, 1) 0%, transparent 66%), radial-gradient(circle at 0% 99%, hsla(271.9148936170212, 99%, 53%, 1) 0%, transparent 67%), radial-gradient(circle at 46% 94%, hsla(14.588235294117649, 0%, 0%, 1) 0%, transparent 81%), radial-gradient(circle at 89% 8%, hsla(252.38849030066928, 89%, 23%, 1) 0%, transparent 150%);
+        background-blend-mode: normal, normal, normal, normal; */
+    color: var(--text, hsl(0, 0%, 95%));
+    overflow: hidden;
+    transition: var(--transition-bg);
+    box-shadow: inset 0 0 1px 1px rgba(32, 0, 36, 0.11);
+    /* box-shadow: var(--glass-border); */
+}

@@ -105,9 +105,31 @@ document.addEventListener("DOMContentLoaded", () => {
 customElements.define("t-footer", TFooter);
 
 
+// ~~~ Check for light mode ~~~
+let defaultMode = "dark"; 
 
+// Apply default
+if (defaultMode === "light") {
+    document.body.classList.add("light");
+} else {
+    document.body.classList.remove("light");
+}
 
+// Adjust based on system preference
+if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    document.body.classList.remove("light");
+}
 
 function toggle() {
     document.body.classList.toggle("light");
 }
+window.toggle = toggle;
+
+// Listen for system changes
+window.matchMedia("(prefers-color-scheme: light)").addEventListener("change", e => {
+    document.body.classList.toggle("light", e.matches);
+});
+window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", e => {
+    document.body.classList.toggle("light", !e.matches);
+});
+
