@@ -25,6 +25,7 @@
     --font-body: "Noto Sans JP", sans-serif;
     --font-heading: "Fira Sans", sans-serif;
     --font-navbar: "Roboto Mono", sans-serif;
+    --font-title: "Syne", sans-serif;
 
     /* Font Styles */
     --text-p: 400 1rem/1.5 var(--font-body);
@@ -51,12 +52,20 @@
             0 1px 2px #00000030,
             /* dark shadow */
             0 2px 4px #00000015;
-        /* soft shadow */
+            /* soft shadow */
+    --shadow-s-idle: 0 1px 2px #00000030,
+            /* dark shadow */
+            0 2px 4px #00000015;
+            /* soft shadow */
     --shadow-m: inset 0 1px 2px #ffffff50,
             /* top highlight */
             0 2px 4px #00000030,
             /* dark shadow */
             0 4px 8px #00000015;
+            /* soft shadow */
+    --shadow-m-idle: 0 1px 2px #00000030,
+            /* dark shadow */
+            0 2px 4px #00000015;
             /* soft shadow */
 
     --nav-radius: 8px;
@@ -117,19 +126,19 @@ body {
     TYPOGRAPHY
 ------------------------------------------------------- */
 h1 {
-    font: var(--text-h1);
+    font-family: var(--text-h1);
     color: var(--text);
     margin-bottom: var(--space-3);
 }
 
 h2 {
-    font: var(--text-h2);
+    font-family: var(--text-h2);
     color: var(--text);
     margin-bottom: var(--space-2);
 }
 
 p {
-    font: var(--text-p);
+    font-family: var(--text-p);
     color: var(--text-muted);
     margin-bottom: var(--space-3);
 }
@@ -190,7 +199,7 @@ button:focus {
     padding: 10px var(--space-4);
     z-index: 100;
     transition: var(--transition);
-    box-shadow: var(--shadow-m);
+    box-shadow: var(--shadow-m-idle);
 }
 
 .nav-container.scrolled {
@@ -221,6 +230,40 @@ button:focus {
 }
 
 /* Nav Logo */
+.logo-links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    height: 40px;
+}
+
+.logo-links a { 
+    color: transparent;
+    text-decoration: none;
+}
+
+.logo-links p {
+    font-family: "Syne", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.25px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-radius: var(--nav-radius);
+    padding: 5px var(--space-2);
+    transition: var(--transition-bg);
+    will-change: background-color;
+    margin: 0 auto;
+}
+
+.logo-links p:hover, 
+.logo-links p:focus {
+    background-color: var(--hover-bg);
+    color: var(--text);
+    transition: var(--transition-bg);
+}
+
 .nav-logo {
     width: var(--nav-logo-size);
     height: var(--nav-logo-size);
@@ -229,7 +272,7 @@ button:focus {
 
 .nav-links a,
 .nav-logo-link {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
@@ -240,12 +283,28 @@ button:focus {
 /* Nav Page Links */
 .nav-links {
     position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     align-items: center;
     gap: var(--space-1);
     height: 40px;
+}
+
+@media (max-width: 900px) {
+    .logo-links p {
+        opacity: 0;
+        transition: var(--transition-bg);
+    }
+}
+
+@media (max-width: 700px) {
+    .nav-links {
+        display: none;
+    }
+    .navbar {
+        justify-content: space-between;
+    }
 }
 
 .nav-links a {

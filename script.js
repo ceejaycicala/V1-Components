@@ -7,9 +7,14 @@ class THeader extends HTMLElement {
         <header>
             <div class="nav-container">
                 <nav class="navbar">
-                    <a href="index.html" class="nav-logo-link">
-                        <img src="img/icon1.png" alt="Logo" class="nav-logo" />
-                    </a>
+                    <div class="logo-links">
+                        <a href="index.html" class="nav-logo-link">
+                            <img src="img/icon1.png" alt="Logo" class="nav-logo" />
+                        </a>
+                        <a href="index.html" class="nav-logo-link">
+                            <p class="page-name">Ceejay Cicala</p>
+                        </a>
+                    </div>
 
                     <div class="nav-links">
                         <a href="index.html" class="${selected === "home" ? "selectedPage" : ""}">Home</a>
