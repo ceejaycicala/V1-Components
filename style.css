@@ -42,6 +42,19 @@
     --transition-bg: background-color 0.2s cubic-bezier(0.77, 0, 0.175, 1);
     --hover-bg: rgba(255, 255, 255, 0.05);
 
+
+    --shadow-s: inset 0 1px 2px #ffffff30,
+            /* top highlight */
+            0 1px 2px #00000030,
+            /* dark shadow */
+            0 2px 4px #00000015;
+        /* soft shadow */
+    --shadow-m: inset 0 1px 2px #ffffff50,
+            /* top highlight */
+            0 2px 4px #00000030,
+            /* dark shadow */
+            0 4px 8px #00000015;
+        /* soft shadow */
 }
 
 * {
@@ -159,11 +172,12 @@ button:focus {
     width: min(90vw, 900px);
     background: var(--nav-background);
     backdrop-filter: blur(var(--nav-blur));
-    border: 1px solid var(--clr-border);
+    /* border: 1px solid var(--border); */
     border-radius: 14px;
     padding: var(--space-2) var(--space-4);
     z-index: 100;
     transition: var(--transition);
+    box-shadow: var(--shadow-m);
 }
 
 .navbar {
@@ -190,7 +204,7 @@ button:focus {
     color: var(--text-muted);
     text-decoration: none;
     font-weight: 500;
-    border-radius: 7px;
+    border-radius: 1rem;
     padding: 10px var(--space-3);
     transition: var(--transition-bg);
     will-change: background-color;
@@ -205,12 +219,15 @@ button:focus {
 }
 
 .nav-container button {
-    background: none;
+    display: inline-flex;
+    align-items: center;
+	justify-content: center;
+	background: transparent;
     cursor: pointer;
     color: var(--text-muted);
     transition: background-color 0.2s cubic-bezier(0.77, 0, 0.175, 1), color 0.2s cubic-bezier(0.77, 0, 0.175, 1);
     will-change: background-color, color;
-    border-radius: 0.5rem;
+    border-radius: 1rem;
     padding: 0.5rem;
     border: none;
     outline: none;
@@ -222,25 +239,31 @@ button:focus {
 }
 
 .nav-container button:focus {
-    /* background-color: var(--hover-bg); */
+    background-color: none;
     color: var(--text);
 }
 
-/* actions use same layout + link-like sizing as nav links */
+.nav-container button svg {
+    width: 24px;
+    height: 24px;
+    display: block;
+    flex: 0 0 24px;
+    fill: currentColor;
+    stroke: none;
+}
+
 .nav-actions {
     display: flex;
     align-items: center;
     gap: var(--space-2);
 }
 
-/* make social links behave like nav links */
-.nav-actions .nav-social,
-.nav-links a {
+.nav-actions .nav-social {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: var(--space-2) var(--space-2);
-    border-radius: 7px;
+    border-radius: 1rem;
     text-decoration: none;
     color: var(--text-muted);
     transition: background-color 0.2s cubic-bezier(0.77, 0, 0.175, 1), color 0.2s cubic-bezier(0.77, 0, 0.175, 1);
