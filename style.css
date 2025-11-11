@@ -11,7 +11,8 @@
     --border: hsl(0, 0%, 30%);
     --highlight: hsl(0, 0%, 60%);
 
-    --nav-background: hsla(0, 0%, 4%, 20%);
+    --nav-background: hsla(0, 0%, 4%, 50%);
+    --nav-background-idle: hsla(0, 0%, 4%, 75%);
     --nav-blur: 20px;
     --nav-border: hsla(0, 0%, 30%, 50%);
     
@@ -83,7 +84,8 @@ body.light {
     --border: hsl(0, 0%, 60%);
     --highlight: hsl(0, 0%, 0%);
 
-    --nav-background: hsla(0, 0%, 96%, 20%);
+    --nav-background: hsla(0, 0%, 96%, 50%);
+    --nav-background-idle: hsla(0, 0%, 96%, 75%);
     --nav-blur: 20px;
 
     --transition-bg: background-color 0.2s cubic-bezier(0.77, 0, 0.175, 1);
@@ -177,6 +179,21 @@ button:focus {
     NAVBAR
 ------------------------------------------------------- */
 .nav-container {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(90vw, 1200px);
+    background: var(--nav-background-idle);
+    backdrop-filter: blur(var(--nav-blur));
+    border-radius: 0px 0px 14px 14px;
+    padding: 10px var(--space-4);
+    z-index: 100;
+    transition: var(--transition);
+    box-shadow: var(--shadow-m);
+}
+
+.nav-container.scrolled {
     max-height: var(--nav-max-height);
     overflow: hidden;
     position: fixed;

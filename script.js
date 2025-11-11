@@ -56,6 +56,21 @@ class THeader extends HTMLElement {
 }
 customElements.define("t-header", THeader);
 
+// navbar scroll effect
+function updateNavScroll() {
+    const nav = document.querySelector(".nav-container");
+    if (!nav) return;
+
+    if (window.scrollY > 50) {
+        nav.classList.add("scrolled");
+    } else {
+        nav.classList.remove("scrolled");
+    }
+}
+
+window.addEventListener("load", updateNavScroll);
+window.addEventListener("scroll", updateNavScroll);
+
 
 // footer
 class TFooter extends HTMLElement {
