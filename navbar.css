@@ -79,7 +79,6 @@
     width: var(--nav-logo-size);
     height: var(--nav-logo-size);
     display: inline-block;
-    overflow: hidden;
 }
 
 .nav-logo-wrapper::after {
@@ -262,6 +261,14 @@
     transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
 }
 
+.mode-toggle-wrapper,
+.nav-logo-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
 .icon-dark,
 .icon-light {
     position: absolute;
@@ -269,6 +276,8 @@
     left: 0;
     width: 100%;
     height: 100%;
+    padding: var(--space-2) var(--space-2);
+    margin: auto auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -294,4 +303,28 @@ body.light .icon-dark svg {
 body.light .icon-light svg {
     transform: translateX(0);
     opacity: 1;
+}
+
+/* ~~~ Tool Tips ~~~ */
+.tooltip {
+    position: absolute;
+    top: 100%;
+    transform: translateX(0%);
+    background-color: var(--bg);
+    color: var(--text-muted);
+    padding: 5px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    font-size: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease,
+        var(--transition-bg);
+}
+
+.nav-logo-wrapper:hover>.tooltip,
+.nav-actions .nav-social:hover>.tooltip,
+.mode-toggle-wrapper:hover>.tooltip {
+    opacity: 1;
+    transform: translateY(-5px);
 }
