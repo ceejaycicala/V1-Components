@@ -1,0 +1,201 @@
+.nav-container {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(90vw, 1200px);
+    background: var(--nav-background-idle);
+    backdrop-filter: blur(var(--nav-blur));
+    border-radius: 0px 0px 14px 14px;
+    padding: 10px var(--space-4);
+    z-index: 100;
+    transition: var(--transition);
+    box-shadow: var(--shadow-m-idle);
+}
+
+.nav-container.scrolled {
+    max-height: var(--nav-max-height);
+    overflow: hidden;
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(90vw, 1000px);
+    background: var(--nav-background);
+    backdrop-filter: blur(var(--nav-blur));
+    /* border: 1px solid var(--border); */
+    border-radius: 14px;
+    padding: 10px var(--space-4) var(--space-2) var(--space-4);
+    z-index: 100;
+    transition: var(--transition);
+    box-shadow: var(--shadow-m);
+}
+
+.navbar {
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Nav Logo */
+.logo-links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    height: 40px;
+}
+
+.logo-links a {
+    color: transparent;
+    text-decoration: none;
+}
+
+.logo-links p {
+    font-family: "Syne", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.25px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-radius: var(--nav-radius);
+    padding: 5px var(--space-2);
+    transition: var(--transition-bg);
+    will-change: background-color;
+    margin: 0 auto;
+}
+
+.logo-links p:hover,
+.logo-links p:focus {
+    background-color: var(--hover-bg);
+    color: var(--text);
+    transition: var(--transition-bg);
+}
+
+.nav-logo {
+    width: var(--nav-logo-size);
+    height: var(--nav-logo-size);
+    object-fit: cover;
+}
+
+.nav-links a,
+.nav-logo-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0;
+}
+
+
+/* Nav Page Links */
+.nav-links {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    height: 40px;
+}
+
+@media (max-width: 900px) {
+    .logo-links p {
+        opacity: 0;
+        transition: var(--transition-bg);
+    }
+}
+
+@media (max-width: 700px) {
+    .nav-links {
+        display: none;
+    }
+
+    .navbar {
+        justify-content: space-between;
+    }
+}
+
+.nav-links a {
+    font-family: var(--font-navbar);
+    font-weight: 750;
+    letter-spacing: 0.25px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-radius: var(--nav-radius);
+    padding: 10px var(--space-3);
+    transition: var(--transition-bg);
+    will-change: background-color;
+    background-color: var(--hover-bg);
+}
+
+.nav-links a:hover {
+    background-color: var(--hover-bg2);
+}
+
+.nav-links a.selectedPage {
+    color: var(--text);
+}
+
+/* Nav Logo Buttons */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.nav-actions .nav-social {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-2) var(--space-2);
+    border-radius: var(--nav-radius);
+    text-decoration: none;
+    color: var(--text-muted);
+    transition: background-color 0.2s cubic-bezier(0.77, 0, 0.175, 1), color 0.2s cubic-bezier(0.77, 0, 0.175, 1);
+    will-change: background-color, color;
+}
+
+.nav-container button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: background-color 0.2s cubic-bezier(0.77, 0, 0.175, 1), color 0.2s cubic-bezier(0.77, 0, 0.175, 1);
+    will-change: background-color, color;
+    border-radius: var(--nav-radius);
+    padding: var(--space-2) var(--space-2);
+    border: none;
+    outline: none;
+}
+
+.nav-container button:hover,
+.nav-actions .nav-social:hover {
+    background-color: var(--hover-bg);
+    color: var(--text);
+}
+
+.nav-container button:focus {
+    color: var(--text);
+}
+
+.nav-container button svg,
+.nav-actions .nav-social svg {
+    width: 1.5em;
+    height: 1.5em;
+    display: block;
+    fill: currentColor;
+    stroke: none;
+}
+
+.nav-links a,
+.nav-actions .nav-social,
+.nav-container button {
+    font-size: var(--nav-font-size);
+}
