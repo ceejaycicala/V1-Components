@@ -201,3 +201,14 @@ prefersDark.addEventListener("change", e => {
     if (e.matches) applyTheme("dark");
 });
 
+
+// ~~~ Scroll Down From Hero ~~~
+const scrollBtn = document.querySelector('.scroll-down-icon-wrapper');
+scrollBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    window.scrollTo({
+        top: 300,
+        left: 0,
+        behavior: 'smooth'
+    });
+});

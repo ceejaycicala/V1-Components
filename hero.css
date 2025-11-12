@@ -52,21 +52,49 @@ body.light .hero::after {
     opacity: 1;
 }
 
-/* .hero::before,
-.hero::after {
-    background-size: cover;
-    background-position: center;
-} */
-
-/* .hero::part(grain),
-.hero .grain {
-    content: "";
+.scroll-down-icon-wrapper {
     position: absolute;
-    inset: 0;
-    z-index: -1;
-    /* stays behind content but above gradient layers */
-/* background-image: url("https: //arc.net/noise-light.png");
-    background-size: 200px 200px;
-    opacity: 0.07;
-    pointer-events: none;
-} */
+    width: var(--nav-logo-size);
+    height: var(--nav-logo-size);
+    display: inline-block;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    z-index: 10;
+}
+
+.scroll-down-icon {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    /* border: 2px solid var(--text); */
+    box-shadow: var(--shadow-m);
+    background: var(--nav-background);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.scroll-down-icon:hover, 
+.scroll-down-icon:focus {
+    transform: translateY(4px);
+    box-shadow: var(--shadow-m);
+}
+
+.scroll-down-icon:active {
+    transform: scale(0.9);
+}
+
+.scroll-down-icon svg {
+    width: 50%;
+    height: 50%;
+    fill: var(--text-muted);
+    stroke: none;
+    display: block;
+}

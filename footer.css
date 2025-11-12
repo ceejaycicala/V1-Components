@@ -4,6 +4,8 @@
     FOOTER
 ------------------------------------------------------- */
 .footer {
+    transition: var(--transition-bg),
+        text 0.15s ease-in-out;
     background: var(--bg);
     color: var(--text);
     border-top: 1px solid hsl(0, 0%, 100%, 0.20);
