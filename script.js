@@ -20,7 +20,7 @@ class THeader extends HTMLElement {
 
                     <div class="nav-links">
                         <a href="index.html" class="${selected === "home" ? "selectedPage" : ""}">Home</a>
-                        <a href="contact.html" class="${selected === "cont  act" ? "selectedPage" : ""}">Contact</a>
+                        <a href="contact.html" class="${selected === "contact" ? "selectedPage" : ""}">Contact</a>
                         <a href="projects.html" class="${selected === "projects" ? "selectedPage" : ""}">Projects</a>
                     </div>
 
