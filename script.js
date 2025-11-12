@@ -14,7 +14,7 @@ class THeader extends HTMLElement {
                             </a>
                         </div>
                         <a href="index.html" class="nav-logo-link">
-                            <p class="page-name">Ceejay Cicala</p>
+                            <p class="page-name"> </p>
                         </a>
                     </div>
 
