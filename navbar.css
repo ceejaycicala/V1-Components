@@ -74,10 +74,43 @@
     transition: var(--transition-bg);
 }
 
+.nav-logo-wrapper {
+    position: relative;
+    width: var(--nav-logo-size);
+    height: var(--nav-logo-size);
+    display: inline-block;
+    overflow: hidden;
+}
+
+.nav-logo-wrapper::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: var(--hover-bg);
+    border-radius: var(--nav-radius);
+    z-index: -1;
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    opacity: 0;
+}
+
 .nav-logo {
     width: var(--nav-logo-size);
     height: var(--nav-logo-size);
     object-fit: cover;
+    transition: transform 0.2s ease-in-out;
+    transform: scale(1);
+}
+
+.nav-logo-wrapper:hover .nav-logo {
+    transform: scale(0.75);
+}
+
+.nav-logo-wrapper:hover::after {
+    opacity: 1;
+}
+
+.nav-logo:active, .nav-logo:focus {
+    transform: scale(1);
 }
 
 .nav-links a,

@@ -8,9 +8,11 @@ class THeader extends HTMLElement {
             <div class="nav-container">
                 <nav class="navbar">
                     <div class="logo-links">
-                        <a href="index.html" class="nav-logo-link">
-                            <img src="img/icon1.png" alt="Logo" class="nav-logo" />
-                        </a>
+                        <div class="nav-logo-wrapper">
+                            <a href="index.html" class="nav-logo-link">
+                                <img src="img/icon1.png" alt="Logo" class="nav-logo" />
+                            </a>
+                        </div>
                         <a href="index.html" class="nav-logo-link">
                             <p class="page-name">Ceejay Cicala</p>
                         </a>
