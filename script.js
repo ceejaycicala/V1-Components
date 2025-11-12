@@ -13,15 +13,15 @@ class THeader extends HTMLElement {
                                 <img src="img/icon1.png" alt="Logo" class="nav-logo" />
                             </a>
                         </div>
-                        <a href="index.html" class="nav-logo-link">
+                        <a href="/src/index.html" class="nav-logo-link">
                             <p class="page-name"> </p>
                         </a>
                     </div>
 
                     <div class="nav-links">
-                        <a href="index.html" class="${selected === "home" ? "selectedPage" : ""}">Home</a>
-                        <a href="contact.html" class="${selected === "contact" ? "selectedPage" : ""}">Contact</a>
-                        <a href="projects.html" class="${selected === "projects" ? "selectedPage" : ""}">Projects</a>
+                        <a href="/src/index.html" class="${selected === "home" ? "selectedPage" : ""}">Home</a>
+                        <a href="/src/contact.html" class="${selected === "contact" ? "selectedPage" : ""}">Contact</a>
+                        <a href="/src/projects.html" class="${selected === "projects" ? "selectedPage" : ""}">Projects</a>
                     </div>
 
                     <!-- Github -->
@@ -139,7 +139,7 @@ class TFooter extends HTMLElement {
                                 <div class="footer-column">
                                     <div class="footer-title">CONTACT</div>
                                     <a href="mailto:ceejay.cicala@proton.me">Email</a>
-                                    <a href="contact.html">The Rest</a>
+                                    <a href="/src/contact.html">The Rest</a>
                                 </div>
                             </div>
                         </div>
