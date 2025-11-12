@@ -83,6 +83,7 @@
     --nav-max-height: 60px;
     --nav-font-size: 16px;
     --nav-logo-size: 40px;
+    --nav-icon-size: 1.5em;
 
     /* Hero Section */
     --gradient-color: hsla(14.588235294117649, 100%, 50%, 1);
@@ -215,7 +216,6 @@ button:focus {
 /* -------------------------------------------------------
     FOOTER
 ------------------------------------------------------- */
-
 .footer {
     background: var(--bg-light);
     color: var(--text-muted);
