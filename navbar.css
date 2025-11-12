@@ -3,7 +3,7 @@
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: min(90vw, 1200px);
+    width: min(90vw, var(--max-body-width));
     background: var(--nav-background-idle);
     backdrop-filter: blur(var(--nav-blur));
     border-radius: 0px 0px 14px 14px;
@@ -15,7 +15,6 @@
 
 .nav-container.scrolled {
     max-height: var(--nav-max-height);
-    overflow: hidden;
     position: fixed;
     top: 1rem;
     left: 50%;

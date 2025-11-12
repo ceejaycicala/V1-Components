@@ -98,27 +98,50 @@ window.addEventListener("scroll", updateNavScroll);
 // footer
 class TFooter extends HTMLElement {
     connectedCallback() {
+        const currentYear = new Date().getFullYear();
+        const lastModified = new Date(document.lastModified);
+        const formattedDate = lastModified.toLocaleString("en-AU", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: false,
+        })
+        .replace(" at ", '</span>, at <span class="text-code">');
+
+
         this.innerHTML = `
             <footer class="footer">
-                <div class="footer-content">
-                    <div class="footer-left">
-                        &copy; <span id="footer-year"></span> Ceejay Cicala.
+                <div class="footer-top">
+                    <div class="footer-logo">Ceejay Cicala</div>
+                    <div class="footer-links-wrapper">
+                        <div class="footer-column">
+                            <div class="footer-title">MAIN</div>
+                            <a href="#">Home</a>
+                            <a href="#">Projects</a>
+                        </div>
+                        <div class="footer-column">
+                            <div class="footer-title">CONTACT</div>
+                            <a href="mailto:ceejay.cicala@proton.me">Email</a>
+                            <a href="contact.html">The Rest</a>
+                        </div>
                     </div>
-                    <div class="footer-right">
-                        <a href="/license.txt" class="footer-link">license.txt</a>
-                        <span class="footer-separator">|</span>
-                        <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" class="footer-link">CC BY-NC-SA 4.0</a>
+                </div>
+                <div class="footer-bottom">
+                    <div class="footer-bottom-left">
+                        <span class="copyright-text">&copy; ${currentYear} Ceejay Cicala. • <span><a class="footer-out-link" href="license.txt">license.txt</a> • <a class="footer-out-link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></span></span>
+                        <span><a href="#" class="back-to-top-text">↑ Back to top</a></span>
+                    </div>
+                    <div class="footer-bottom-right">
+                        <span>Last updated on: <span class="text-code">${formattedDate}</span>  AEST</span>
+                        <span class="cursive"> Such is Life</span>
                     </div>
                 </div>
             </footer>
         `;
     }
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-    const footerYear = document.getElementById('footer-year');
-    if (footerYear) footerYear.textContent = new Date().getFullYear();
-});
 
 customElements.define("t-footer", TFooter);
 

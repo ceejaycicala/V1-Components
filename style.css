@@ -40,8 +40,12 @@
     --space-5: 40px;
     --space-6: 80px;
 
+    --body-margin: 1rem;
+    --max-body-width: 1200px;
+
     /* Transitions */
     --transition: all 0.25s ease-in-out;
+    --transition-btn: all 0.15s ease-in-out;
     --transition-bg: background-color 0.2s cubic-bezier(0.77, 0, 0.175, 1);
     --hover-bg: rgba(255, 255, 255, 0.05);
     --hover-bg2: rgba(255, 255, 255, 0.15);
@@ -146,7 +150,7 @@ body {
 }
 
 .content {
-    margin: 1rem auto;
+    margin: var(--body-margin) auto;
     max-width: min(90vw, 1200px);
 }
 
@@ -210,54 +214,4 @@ button:hover {
 button:focus {
     outline: 2px solid var(--highlight);
     outline-offset: 2px;
-}
-
-
-/* -------------------------------------------------------
-    FOOTER
-------------------------------------------------------- */
-.footer {
-    background: var(--bg-light);
-    color: var(--text-muted);
-    padding: 8rem var(--space-4) 8rem var(--space-4);
-    text-align: center;
-    font-size: 0.875rem;
-    border-top: 1px solid var(--clr-border);
-    /* border-radius: 2rem 2rem 0 0; */
-    box-shadow: var(--shadow-m);
-}
-
-.footer-content {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    max-width: min(90vw, 900px);
-    margin: 0 auto;
-    gap: var(--space-2);
-} 
-
-.footer-left {
-    flex: 1;
-}
-
-.footer-right {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-}
-
-.footer-link {
-    color: var(--text-muted);
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.footer-link:hover {
-    color: var(--text);
-}
-
-.footer-separator {
-    margin: 0 0.25rem;
-    color: var(--text-muted);
 }

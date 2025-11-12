@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap');
+
+/* -------------------------------------------------------
+    FOOTER
+------------------------------------------------------- */
+.footer {
+    background: var(--bg);
+    color: var(--text);
+    border-top: 1px solid hsl(0, 0%, 100%, 0.20);
+    padding: 40px 0px;
+}
+
+.footer-top, .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    margin: var(--body-margin) auto;
+    max-width: min(90vw, var(--max-body-width));
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.footer-bottom {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-family: 'Inter', sans-serif;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.footer-logo {
+    font-family: "Syne", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.footer-links-wrapper {
+    display: flex;
+    gap: 60px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer-title {
+    font-family: var(--font-navbar);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    opacity: 0.75;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.footer-column a {
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: var(--transition-btn);
+}
+
+.footer-column a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom-left,
+.footer-bottom-right {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-decoration: none;
+}
+
+.copyright-text {
+    color: var(--text);
+    font-size: 16px;
+}
+
+.back-to-top-text {
+    font-weight: 550;
+}
+
+.back-to-top-text,
+.footer-out-link {
+    transition: var(--transition-btn);
+    color: var(--text-muted);
+    text-decoration: none;
+}
+
+.footer-out-link:hover {
+    color: var(--text);
+    text-decoration: underline;
+}
+
+.back-to-top-text:hover {
+    color: var(--text);
+}
+
+.footer-bottom-right {
+    text-align: right;
+}
+
+.text-code {
+    font-family: var(--font-navbar);
+}
+
+.cursive {
+    font-size: 16px;
+    font-family: 'Alex Brush', 'Inter', sans-serif;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none; 
+}
