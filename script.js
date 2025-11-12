@@ -96,54 +96,78 @@ window.addEventListener("scroll", updateNavScroll);
 
 
 // footer
+function getOrdinal(day) {
+    if (day > 3 && day < 21) return 'th'; // 4–20 is always "th"
+    switch (day % 10) {
+        case 1: return 'st';
+        case 2: return 'nd';
+        case 3: return 'rd';
+        default: return 'th';
+    }
+}
+
 class TFooter extends HTMLElement {
     connectedCallback() {
         const currentYear = new Date().getFullYear();
-        const lastModified = new Date(document.lastModified);
-        const formattedDate = lastModified.toLocaleString("en-AU", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-            hour: "2-digit",
-            minute: "2-digit",
-            hour12: false,
-        })
-        .replace(" at ", '</span>, at <span class="text-code">');
+
+        fetch('last_modified.txt')
+            .then(res => res.text())
+            .then(date => {
+                const d = new Date(date);
+
+                // Manual formatting to match "12 November 2025, at 04:21 PM"
+                const day = d.getDate();
+                const ordinal = getOrdinal(day);
+                const month = d.toLocaleString("en-AU", { month: "long" });
+                const year = d.getFullYear();
+                let hours = d.getHours();
+                const minutes = String(d.getMinutes()).padStart(2, "0");
+
+                const formattedDate = `${day}${ordinal} of ${month} ${year}</span>, at <span class="text-code">${String(hours).padStart(2, '0')}:${minutes}`;
 
 
-        this.innerHTML = `
-            <footer class="footer">
-                <div class="footer-top">
-                    <div class="footer-logo">Ceejay Cicala</div>
-                    <div class="footer-links-wrapper">
-                        <div class="footer-column">
-                            <div class="footer-title">MAIN</div>
-                            <a href="#">Home</a>
-                            <a href="#">Projects</a>
+                this.innerHTML = `
+                    <footer class="footer">
+                        <div class="footer-top">
+                            <div class="footer-logo">Ceejay Cicala</div>
+                            <div class="footer-links-wrapper">
+                                <div class="footer-column">
+                                    <div class="footer-title">MAIN</div>
+                                    <a href="#">Home</a>
+                                    <a href="#">Projects</a>
+                                </div>
+                                <div class="footer-column">
+                                    <div class="footer-title">CONTACT</div>
+                                    <a href="mailto:ceejay.cicala@proton.me">Email</a>
+                                    <a href="contact.html">The Rest</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="footer-column">
-                            <div class="footer-title">CONTACT</div>
-                            <a href="mailto:ceejay.cicala@proton.me">Email</a>
-                            <a href="contact.html">The Rest</a>
+                        <div class="footer-bottom">
+                            <div class="footer-bottom-left">
+                                <span class="copyright-text">
+                                    &copy; ${currentYear} Ceejay Cicala. • 
+                                    <span>
+                                        <a class="footer-out-link" href="license.txt">license.txt</a> • 
+                                        <a class="footer-out-link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+                                    </span>
+                                </span>
+                                <span><a href="#" class="back-to-top-text">↑ Back to top</a></span>
+                            </div>
+                            <div class="footer-bottom-right">
+                                <span>Last Updated on: <span class="text-code">${formattedDate}</span>  AEST</span>
+                                <span class="cursive"> Such is Life</span>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="footer-bottom">
-                    <div class="footer-bottom-left">
-                        <span class="copyright-text">&copy; ${currentYear} Ceejay Cicala. • <span><a class="footer-out-link" href="license.txt">license.txt</a> • <a class="footer-out-link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></span></span>
-                        <span><a href="#" class="back-to-top-text">↑ Back to top</a></span>
-                    </div>
-                    <div class="footer-bottom-right">
-                        <span>Last updated on: <span class="text-code">${formattedDate}</span>  AEST</span>
-                        <span class="cursive"> Such is Life</span>
-                    </div>
-                </div>
-            </footer>
-        `;
+                    </footer>
+                `;
+            }
+        );
     }
 }
 
 customElements.define("t-footer", TFooter);
+
 
 
 // ~~~ Check for light mode ~~~
