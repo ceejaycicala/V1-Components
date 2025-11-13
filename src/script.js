@@ -10,7 +10,7 @@ class THeader extends HTMLElement {
                     <div class="logo-links">
                         <div class="nav-logo-wrapper">
                             <a href="index.html" class="nav-logo-link">
-                                <img src="img/icon1.png" alt="Logo" class="nav-logo" />
+                                <img src="/img/icon1.png" alt="Logo" class="nav-logo" />
                             </a>
                         </div>
                         <a href="/src/index.html" class="nav-logo-link">
@@ -110,7 +110,7 @@ class TFooter extends HTMLElement {
     connectedCallback() {
         const currentYear = new Date().getFullYear();
 
-        fetch('last_modified.txt')
+        fetch('/src/last_modified.txt')
             .then(res => res.text())
             .then(date => {
                 const d = new Date(date);
