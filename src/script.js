@@ -105,6 +105,27 @@ function updateNavScroll() {
 window.addEventListener("load", updateNavScroll);
 window.addEventListener("scroll", updateNavScroll);
 
+// ~~~ Clock ~~~
+function updateMelbourneTime() {
+    const now = new Date();
+
+    const timeOptions = {
+        timeZone: 'Australia/Melbourne',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true
+    };
+
+    const timeString = new Intl.DateTimeFormat('en-AU', timeOptions).format(now);
+
+    document.getElementById('time').textContent = timeString;
+}
+
+setInterval(updateMelbourneTime, 1000);
+
+updateMelbourneTime();
+
 
 // footer
 class TFooter extends HTMLElement {
