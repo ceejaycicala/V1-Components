@@ -175,6 +175,9 @@ body {
     color: var(--text);
     transition: var(--transition);
     text-wrap: balance;
+    background-image: radial-gradient(var(--border) 1px, transparent 0);
+    background-size: 40px 40px;
+    background-position: -10px -10px;
 }
 
 .content {

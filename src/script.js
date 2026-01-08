@@ -96,78 +96,79 @@ window.addEventListener("scroll", updateNavScroll);
 
 
 // footer
-function getOrdinal(day) {
-    if (day > 3 && day < 21) return 'th'; // 4–20 is always "th"
-    switch (day % 10) {
-        case 1: return 'st';
-        case 2: return 'nd';
-        case 3: return 'rd';
-        default: return 'th';
-    }
-}
-
 class TFooter extends HTMLElement {
     connectedCallback() {
         const currentYear = new Date().getFullYear();
 
-        fetch('/src/last_modified.txt')
-            .then(res => res.text())
-            .then(date => {
-                const d = new Date(date);
-
-                // Manual formatting to match "12 November 2025, at 04:21 PM"
-                const day = d.getDate();
-                const ordinal = getOrdinal(day);
-                const month = d.toLocaleString("en-AU", { month: "long" });
-                const year = d.getFullYear();
-                let hours = d.getHours();
-                const minutes = String(d.getMinutes()).padStart(2, "0");
-
-                const formattedDate = `${day}${ordinal} of ${month} ${year}</span>, at <span class="text-code">${String(hours).padStart(2, '0')}:${minutes}`;
-
-
-                this.innerHTML = `
-                    <footer class="footer">
-                        <div class="footer-top">
-                            <div class="footer-logo">Ceejay Cicala</div>
-                            <div class="footer-links-wrapper">
-                                <div class="footer-column">
-                                    <div class="footer-title">MAIN</div>
-                                    <a href="#">Home</a>
-                                    <a href="#">Projects</a>
-                                </div>
-                                <div class="footer-column">
-                                    <div class="footer-title">CONTACT</div>
-                                    <a href="mailto:ceejay.cicala@proton.me">Email</a>
-                                    <a href="/src/contact.html">The Rest</a>
-                                </div>
-                            </div>
+        this.innerHTML = `
+            <footer class="footer">
+                <div class="footer-top">
+                    <div class="footer-logo">Ceejay Cicala</div>
+                    <div class="footer-links-wrapper">
+                        <div class="footer-column">
+                            <div class="footer-title">MAIN</div>
+                            <a href="#">Home</a>
+                            <a href="#">Projects</a>
                         </div>
-                        <div class="footer-bottom">
-                            <div class="footer-bottom-left">
-                                <span class="copyright-text">
-                                    &copy; ${currentYear} Ceejay Cicala. • 
-                                    <span>
-                                        <a class="footer-out-link" href="license.txt">license.txt</a> • 
-                                        <a class="footer-out-link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
-                                    </span>
-                                </span>
-                                <span><a href="#" class="back-to-top-text">↑ Back to top</a></span>
-                            </div>
-                            <div class="footer-bottom-right">
-                                <span>Last Updated on: <span class="text-code">${formattedDate}</span>  AEST</span>
-                                <span class="cursive"> Such is Life</span>
-                            </div>
+                        <div class="footer-column">
+                            <div class="footer-title">CONTACT</div>
+                            <a href="mailto:ceejay.cicala@proton.me">Email</a>
+                            <a href="/src/contact.html">The Rest</a>
                         </div>
-                    </footer>
-                `;
-            }
-        );
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="footer-bottom-left">
+                        <span class="copyright-text">
+                            &copy; ${currentYear} Ceejay Cicala. • 
+                            <span>
+                                <a class="footer-out-link" href="license.txt">license.txt</a> • 
+                                <a class="footer-out-link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+                            </span>
+                        </span>
+                        <span><a href="#" class="back-to-top-text">↑ Back to top</a></span>
+                    </div>
+                    <div class="footer-bottom-right">
+                        <div id="weather">
+                            <span class="weather-text"> 
+                                <svg id="mapmarker" class="topIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="20" height="20">
+                                    <g>
+                                        <path d="M27,12   c0-6.075-4.925-11-11-11S5,5.925,5,12c0,8,11,19,11,19S27,20,27,12z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+                                        <circle cx="16" cy="12" fill="none" r="4" stroke="currentColor" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/>
+                                    </g>
+                                </svg>
+                                
+                                Melbourne, Australia. • 
+                                <span id="temp">20°C</span>
+                            </span> 
+                        </div>
+                        <span class="cursive">Such is Life</span>
+                    </div>
+                </div>
+            </footer>
+        `;
+
+        this.loadWeather();
+    }
+
+    loadWeather() {
+        const tempEl = this.querySelector("#temp");
+
+        fetch("https://api.open-meteo.com/v1/forecast?latitude=-37.8136&longitude=144.9631&current_weather=true")
+            .then(res => res.json())
+            .then(data => {
+                tempEl.textContent = `${Math.round(data.current_weather.temperature)}°C`;
+            })
+            .catch(() => {
+                tempEl.textContent = "&nbsp;";
+            });
     }
 }
 
 customElements.define("t-footer", TFooter);
-
+/* <svg id="mapmarker" class="topIcon" xmlns="http://www.w3.org/2000/svg" viewBox="-64 0 512 512" width="16" height="16">
+    <path fill="currentColor" d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z" />
+</svg> */
 
 
 // ~~~ Check for light mode ~~~
@@ -203,12 +204,12 @@ prefersDark.addEventListener("change", e => {
 
 
 // ~~~ Scroll Down From Hero ~~~
-const scrollBtn = document.querySelector('.scroll-down-icon-wrapper');
-scrollBtn.addEventListener('click', function (e) {
+const scrollBtn = document.querySelector(".scroll-down-icon-wrapper");
+scrollBtn.addEventListener("click", function (e) {
     e.preventDefault();
     window.scrollTo({
         top: 300,
         left: 0,
-        behavior: 'smooth'
+        behavior: "smooth"
     });
 });

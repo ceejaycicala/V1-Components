@@ -19,6 +19,7 @@
 
 /* Dark Gradient Layer */
 .hero::before {
+    background-color: var(--bg-dark);
     content: "";
     position: absolute;
     inset: 0;
@@ -32,6 +33,7 @@
 
 /* Light Gradient Layer */
 .hero::after {
+    background-color: var(--bg-dark);
     content: "";
     position: absolute;
     inset: 0;
