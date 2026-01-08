@@ -10,6 +10,13 @@
     color: var(--text);
     border-top: 1px solid hsl(0, 0%, 100%, 0.20);
     padding: 40px 0px;
+    z-index: 1000;
+    /* position: relative; */
+}
+
+.footer span,
+.footer svg {
+    z-index: 1000;
 }
 
 .footer-top, .footer-bottom {
@@ -23,7 +30,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 40px;
+    margin-bottom: 100px;
     flex-wrap: wrap;
 }
 
@@ -32,6 +39,7 @@
     color: var(--text-muted);
     font-family: 'Inter', sans-serif;
     flex-wrap: wrap;
+    margin-bottom: 0px;
     gap: 10px;
 }
 

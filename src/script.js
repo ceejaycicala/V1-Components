@@ -138,7 +138,7 @@ class TFooter extends HTMLElement {
                                     </g>
                                 </svg>
                                 
-                                Melbourne, Australia. • 
+                                <span>Melbourne, Australia. • </span>
                                 <span id="temp">20°C</span>
                             </span> 
                         </div>
