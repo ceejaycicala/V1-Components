@@ -138,12 +138,12 @@ class TFooter extends HTMLElement {
                     <div class="footer-logo">Ceejay Cicala</div>
                     <div class="footer-links-wrapper">
                         <div class="footer-column">
-                            <div class="footer-title">MAIN</div>
+                            <div class="section-header">MAIN</div>
                             <a href="#">Home</a>
                             <a href="#">Projects</a>
                         </div>
                         <div class="footer-column">
-                            <div class="footer-title">CONTACT</div>
+                            <div class="section-header">CONTACT</div>
                             <a href="mailto:ceejay.cicala@proton.me">Email</a>
                             <a href="/src/contact.html">The Rest</a>
                         </div>

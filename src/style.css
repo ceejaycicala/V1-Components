@@ -6,12 +6,15 @@
     --bg-dark: hsl(0, 0%, 0%);
     --bg: hsl(0, 0%, 5%);
     --bg-light: hsl(0, 0%, 10%);
+    --bg-foot: hsl(0, 0%, 6%);
     --text: hsl(0, 0%, 95%);
     --text-muted: hsl(0, 0%, 70%);
     --border: hsl(0, 0%, 30%);
+    --border-light: hsl(0, 0%, 100%, 20%);
     --highlight: hsl(0, 0%, 60%);
     --highlight-color: hsl(50, 100%, 60%);
     --highlight-text-color: hsl(0, 0%, 10%);
+    --text-selection: hsl(0, 0%, 12%);
 
     --nav-background: hsla(0, 0%, 4%, 50%);
     --nav-background-idle: hsla(0, 0%, 4%, 75%);
@@ -113,9 +116,11 @@ body.light {
     --bg-dark: hsl(0, 0%, 90%);
     --bg: hsl(0, 0%, 95%);
     --bg-light: hsl(0, 0%, 100%);
+    --bg-foot: hsl(0, 0%, 98%);
     --text: hsl(0, 0%, 5%);
     --text-muted: hsl(0, 0%, 20%);
     --border: hsl(0, 0%, 60%);
+    --border-light: hsl(0, 0%, 0%, 20%);
     --highlight: hsl(0, 0%, 0%);
     --highlight-color: hsl(50, 100%, 60%);
     --highlight-text-color: hsl(0, 0%, 10%);
@@ -145,6 +150,23 @@ body.light ::-moz-selection {
     color: var(--highlight-text-color);
 }
 
+/* ~~~ Text selection ~~~ */
+::selection {
+    background-color: var(--text-selection);
+}
+
+::-moz-selection {
+    background-color: var(--text-selection);   
+}
+
+p::selection {
+    color: #fff;
+}
+
+p::-moz-selection {
+    color: #fff;
+}
+
 /* -------------------------------------------------------
     BASE STYLES
 ------------------------------------------------------- */
@@ -171,7 +193,7 @@ html {
 
 body {
     font: var(--text-p);
-    background: var(--bg-dark);
+    background: var(--bg);
     color: var(--text);
     transition: var(--transition);
     text-wrap: balance;
@@ -182,7 +204,14 @@ body {
 
 .content {
     margin: var(--body-margin) auto;
-    max-width: min(90vw, 1200px);
+    max-width: 650px;
+}
+
+.content-header {
+    padding: 20px 16px;
+    /* padding-top: 40px; */
+    padding-bottom: 0;
+    margin-bottom: 40px;
 }
 
 /* -------------------------------------------------------
@@ -214,6 +243,18 @@ section {
     padding: var(--space-5) 0;
 }
 
+hr {
+    margin: 30px auto;
+    border: 0;
+    height: 1px;
+    width: 50px;
+    background-color: var(--border);
+}
+
+.content-section {
+    margin-bottom: 20px;
+}
+
 /* -------------------------------------------------------
     HEADER
 ------------------------------------------------------- */
@@ -222,6 +263,17 @@ header {
     align-items: center;
     justify-content: space-between;
     /* padding: var(--space-3); */
+}
+
+.section-header {
+    font-family: var(--font-navbar);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    opacity: 0.75;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 8px;
 }
 
 /* -------------------------------------------------------
