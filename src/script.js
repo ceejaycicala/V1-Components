@@ -113,11 +113,15 @@ function updateMelbourneTime() {
         timeZone: 'Australia/Melbourne',
         hour: '2-digit',
         minute: '2-digit',
-        second: '2-digit',
         hour12: true
     };
 
-    const timeString = new Intl.DateTimeFormat('en-AU', timeOptions).format(now);
+    let timeString = new Intl.DateTimeFormat('en-AU', timeOptions).format(now);
+
+    // Convert to lowercase and add the dots
+    timeString = timeString.toLowerCase()
+        .replace('am', 'a.m.')
+        .replace('pm', 'p.m.');
 
     document.getElementById('time').textContent = timeString;
 }

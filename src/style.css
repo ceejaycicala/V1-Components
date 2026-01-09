@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
 /* -------------------------------------------------------
     ROOT & RESET
 ------------------------------------------------------- */
@@ -29,7 +31,8 @@
     /* Typography */
     --font-body: "Noto Sans JP", sans-serif;
     --font-heading: "Fira Sans", sans-serif;
-    --font-navbar: "Roboto Mono", sans-serif;
+    /* --font-navbar: "Roboto Mono", sans-serif; */
+    --font-navbar: 'JetBrains Mono', monospace;
     --font-title: "Syne", sans-serif;
 
     /* Font Styles */
@@ -265,8 +268,13 @@ header {
     /* padding: var(--space-3); */
 }
 
+.title-header {
+    font-family: "Syne", sans-serif;
+    font-weight: bold;
+}
+
 .section-header {
-    font-family: var(--font-navbar);
+    font-family: "JetBrains Mono", monospace;
     font-size: 10px;
     letter-spacing: 1.5px;
     color: var(--text-muted);
@@ -325,7 +333,7 @@ button:focus {
     CLOCK
 ------------------------------------------------------- */
 .clock-container {
-    color: var(--font-navbar);
+    color: var(--text-muted);
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -336,9 +344,9 @@ button:focus {
 }
 
 .clock-container > .text-code {
-    color: var(--font-navbar);
+    /* color: var(--font-navbar); */
     display: flex;
     align-items: center;
     flex-direction: row;
-    gap: var(--space-3);
+    gap: var(--space-2);
 }
