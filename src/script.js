@@ -21,7 +21,7 @@ class THeader extends HTMLElement {
                     <div class="logo-links">
                         <div class="nav-logo-wrapper">
                             <a href="index.html" class="nav-logo-link">
-                                <img src="/img/icon1.png" alt="Logo" class="nav-logo" />
+                                <img src="./img/icon1.png" alt="Logo" class="nav-logo" />
                             </a>
                         </div>
                         <a href="/src/index.html" class="nav-logo-link">
