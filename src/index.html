@@ -23,38 +23,9 @@
     </head>
 
     <body>
-        <!-- <img src="https://plus.unsplash.com/premium_photo-1671192373368-10a54b7cd19e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=3132"
-        width="100%"> -->
         <t-header selected="home"></t-header>
-        <!-- <section class="hero-wrapper">
-            <div class="hero">
-                <div class="grain"></div>
-                <div class="hero-content">
-                    <h1>Hey, I'm <span class="accent">Ceejay Cicala</span></h1>
-                    <p class="subtitle">Frontend Developer & Designer</p>
-                    <p class="desc">
-                        I build sleek, performant, and user-focused websites using modern web technologies.
-                        Crafting interactive experiences that blend function and aesthetics.
-                    </p>
-                    <div class="hero-buttons">
-                        <a href="#projects" class="btn primary">View My Work</a>
-                        <a href="#contact" class="btn secondary">Get In Touch</a>
-                    </div>
-                    <div class="scroll-down-icon-wrapper">
-                        <a href="#" class="scroll-down-icon">
-                            <svg version="1.1" viewBox="0 0 512 512" width="24" height="24">
-                                <path xmlns="http://www.w3.org/2000/svg"
-                                    d="M230.4,424.8V25.6C230.4,11.5,241.9,0,256,0c14.1,0,25.6,11.5,25.6,25.6v399.2l135.7-135.7c10.8-9.1,27-7.8,36.1,3   c8.2,9.6,8.1,23.8-0.2,33.3L273.9,504.7c-10,9.8-25.9,9.8-35.8,0L58.8,325.4c-9.3-10.7-8.2-26.8,2.5-36.1   c9.5-8.3,23.7-8.4,33.3-0.2L230.4,424.8z" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section> -->
 
-        <div class="content-header">
-
-        </div>
+        <div class="content-header"></div>
 
         <div class="content">
             <section>
@@ -63,7 +34,7 @@
                         <path
                             fill="currentColor" d="M528 320C528 434.9 434.9 528 320 528C205.1 528 112 434.9 112 320C112 205.1 205.1 112 320 112C434.9 112 528 205.1 528 320zM64 320C64 461.4 178.6 576 320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320zM296 184L296 320C296 328 300 335.5 306.7 340L402.7 404C413.7 411.4 428.6 408.4 436 397.3C443.4 386.2 440.4 371.4 429.3 364L344 307.2L344 184C344 170.7 333.3 160 320 160C306.7 160 296 170.7 296 184z"/>
                     </svg>
-                    <span class="text-code">
+                    <span class="clock-text">
                         <div class="label">MEL </div>
                         <div id="time">22:34:41</div>
                     </span>
@@ -72,18 +43,149 @@
                     <div class="content-section">
                         <div class="section-header">Profile</div>
                         <h1 class="title-header">Ceejay Cicala</h1>
-                        <p>Hey, I'm Ceejay, a student at RMIT. <br>
-                        Currently based in Melbourne, Australia. <br>
-                        I'm just testing this website, check in later!</p>
+                        <p>Hey, I'm Ceejay, a student at RMIT. 👋<br>
+                        Currently based in Melbourne, Australia. 🇦🇺<br>
+                        I'm just testing this website, check in later! ⏱️</p>
                     </div>
                     <hr>
+
                     <div class="content-section">
                         <div class="section-header">Experience</div>
                         
-                        <p>A muted shade for the rest of the text.</p>
-                        <button onclick="toggle()">Some Action</button>
+                        <section class="experience-card">
+                            <div class="experience-selector">
+                                <button class="exp-filter active" data-filter="technical">Technical</button>
+                                <button class="exp-filter" data-filter="other">Other</button>
+                            </div>
+
+                            <div class="experience-list">
+                        
+                                <article class="exp-entry" data-type="other">
+                                    <p class="exp-date">2022 — Present</p>
+                        
+                                    <div class="exp-content">
+                                        <header class="exp-header">
+                                            <img class="exp-logo"
+                                                src="https://media.licdn.com/dms/image/v2/D560BAQH4l4nifpXq-Q/company-logo_100_100/company-logo_100_100/0/1738284576764/ymcavictoria_logo?e=1769644800&v=beta&t=rTivTiV25fDH2xMhR2tylilEi_-GcHO9CbNZIqc5BPg"
+                                                alt="">
+                                            <span class="exp-institution">Company 1</span>
+                                        </header>
+                        
+                                        <div class="exp-role">Senior Lifeguard</div>
+                        
+                                        <div class="exp-body">
+                                            Built and maintained core backend services, internal tooling, and deployment pipelines.
+                                            Led incident response and mentored junior developers.
+                                        </div>
+                                        
+                                    </div>
+                                    <p class="exp-date">2022 — Present</p>
+                                    
+                                    <div class="exp-content">
+                                    
+                                        <div class="exp-role">Lifeguard</div>
+                                    
+                                        <div class="exp-body">
+                                            Public safety supervision, emergency response, first aid, and junior staff training.
+                                        </div>
+                                    
+                                    </div>
+                                </article>
+
+                                <article class="exp-entry" data-type="technical">
+                                    <p class="exp-date">2022 — Present</p>
+                                
+                                    <div class="exp-content">
+                                        <header class="exp-header">
+                                            <img class="exp-logo"
+                                                src="https://media.licdn.com/dms/image/v2/D560BAQH4l4nifpXq-Q/company-logo_100_100/company-logo_100_100/0/1738284576764/ymcavictoria_logo?e=1769644800&v=beta&t=rTivTiV25fDH2xMhR2tylilEi_-GcHO9CbNZIqc5BPg"
+                                                alt="">
+                                            <span class="exp-institution">Company 1</span>
+                                        </header>
+                                
+                                        <div class="exp-role">Senior Lifeguard</div>
+                                
+                                        <div class="exp-body">
+                                            Built and maintained core backend services, internal tooling, and deployment pipelines.
+                                            Led incident response and mentored junior developers.
+                                        </div>
+                                
+                                    </div>
+                                    <p class="exp-date">2022 — Present</p>
+                                
+                                    <div class="exp-content">
+                                
+                                        <div class="exp-role">Lifeguard</div>
+                                
+                                        <div class="exp-body">
+                                            Public safety supervision, emergency response, first aid, and junior staff training.
+                                        </div>
+                                
+                                    </div>
+                                </article>
+                        
+                                <article class="exp-entry" data-type="technical">
+                                    <p class="exp-date">2019 — 2022</p>
+                        
+                                    <div class="exp-content">
+                                        <header class="exp-header">
+                                            <img class="exp-logo" src="https://play-lh.googleusercontent.com/wHmN9v6UkP8sC7bdnkizj97yVABqmpDFyyuhCp6G8q0LxLtSq5N9u5Nwr_QRaBmIyh8" alt="">
+                                            <span class="exp-institution">Company 2</span>
+                                        </header>
+                        
+                                        <div class="exp-role">Role 3</div>
+                        
+                                        <div class="exp-body">
+                                            Public safety supervision, emergency response, first aid, and junior staff training.
+                                        </div>
+                                    </div>
+                                </article>
+                        
+                            </div>
+                        </section>
+                        <script>
+                            const filters = Array.from(document.querySelectorAll('.exp-filter'));
+                            const entries = Array.from(document.querySelectorAll('.exp-entry'));
+
+                            function applyFilter(type) {
+                                filters.forEach(btn => {
+                                    btn.classList.toggle('active', btn.dataset.filter === type);
+                                });
+
+                                entries.forEach(entry => {
+                                    const match = entry.dataset.type === type;
+                                    entry.classList.toggle('is-hidden', !match);
+                                });
+                            }
+
+                            // click handling
+                            filters.forEach((button, index) => {
+                                button.addEventListener('click', () => {
+                                    applyFilter(button.dataset.filter);
+                                });
+
+                                // optional keyboard arrow navigation
+                                button.addEventListener('keydown', e => {
+                                    if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+
+                                    e.preventDefault();
+                                    const dir = e.key === 'ArrowRight' ? 1 : -1;
+                                    const next = (index + dir + filters.length) % filters.length;
+                                    filters[next].focus();
+                                    applyFilter(filters[next].dataset.filter);
+                                });
+                            });
+
+                            // initial state — TECHNICAL ONLY
+                            applyFilter('technical');
+                        </script>
+
+
+
+
                     </div>
                     <hr>
+
                     <div class="content-section">
                         <div class="section-header">Projects</div>
                         
@@ -93,16 +195,145 @@
                     <hr>
                     <div class="content-section">
                         <div class="section-header">Education</div>
+                        <div class="education-list">
+                            <article class="edu-entry">
+                                <p class="edu-date">2024 — 2028<sup>*</sup></time>
                         
-                        <p>A muted shade for the rest of the text.</p>
-                        <button onclick="toggle()">Some Action</button>
+                                <div class="edu-content">
+                                    <header class="edu-header">
+                                        <img class="edu-logo" src="https://play-lh.googleusercontent.com/wHmN9v6UkP8sC7bdnkizj97yVABqmpDFyyuhCp6G8q0LxLtSq5N9u5Nwr_QRaBmIyh8" alt="Institution logo">
+                                        <a class="edu-institution" href="https://www.rmit.edu.au/" target="_blank" rel="noopener">
+                                            Royal Melbourne Institute of Technology — RMIT
+                                            <svg class="edu-external" viewBox="0 0 24 24" aria-hidden="true">
+                                                <path
+                                                    d="M10.0002 5H8.2002C7.08009 5 6.51962 5 6.0918 5.21799C5.71547 5.40973 5.40973 5.71547 5.21799 6.0918C5 6.51962 5 7.08009 5 8.2002V15.8002C5 16.9203 5 17.4801 5.21799 17.9079C5.40973 18.2842 5.71547 18.5905 6.0918 18.7822C6.5192 19 7.07899 19 8.19691 19H15.8031C16.921 19 17.48 19 17.9074 18.7822C18.2837 18.5905 18.5905 18.2839 18.7822 17.9076C19 17.4802 19 16.921 19 15.8031V14M20 9V4M20 4H15M20 4L13 11"
+                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                                            </svg>
+                                        </a>
+                                    </header>
+                        
+                                    <div class="edu-degree">Bachelor of Computer Science (Professional)</div>
+                        
+                                    <div class="edu-body">
+                                        Majoring in Advanced Computer Science <br>
+                                        High distinction (GPA 4.0) 
+                                    </div>
+                                    <ul class="skill-chips" aria-label="Skills">
+                                        <li><span class="chip">C++</a></li>
+                                        <li><span class="chip">Java</a></li>
+                                        <li><span class="chip">Data Structures</span></li>
+                                        <li><span class="chip">Algorithms</a></li>
+                                        <li><span class="chip">Advanced Databases</span></li>
+                                        <li><span class="chip">Systems Design</span></li>
+                                        <li><span class="chip">Distributed Systems</span></li>
+                                        <li><span class="chip">Software Engineering</span></li>
+                                        <li><span class="chip">Self-learning</span></li>
+                                        <li><span class="chip">Teamwork</span></li>
+                                        <li><span class="chip">Presentation</span></li>
+                                    </ul>
+                                </div>
+                            </article>
+                        </div>
                     </div>
                     <hr>
+
                     <div class="content-section"></div>
-                        <div class="section-header">Contact me</div>
+                        <div class="section-header">Contact</div>
+                        <div class="contact-card">
+                            <ul class="contact-list">
+                                <li>
+                                    <a class="contact-item" href="mailto:ceejay.cicala@proton.me" target="_blank" rel="noopener">
+                                        <div class="contact-left">
+                                            <img class="contact-logo" src="https://static.vecteezy.com/system/resources/thumbnails/014/321/535/small/message-icon-logo-design-vector.jpg" alt="">
+                                            <div class="contact-meta">
+                                                <div class="contact-type">Email</div>
+                                            </div>
+                                        </div>
                         
-                        <p>A muted shade for the rest of the text.</p>
-                        <button onclick="toggle()">Some Action</button>
+                                        <div class="contact-right">
+                                            <div class="contact-username">ceejay.cicala@proton.me</div>
+                                            <svg class="contact-action" viewBox="0 0 24 24" aria-hidden="true">
+                                                <path
+                                                    d="M10.0002 5H8.2002C7.08009 5 6.51962 5 6.0918 5.21799C5.71547 5.40973 5.40973 5.71547 5.21799 6.0918C5 6.51962 5 7.08009 5 8.2002V15.8002C5 16.9203 5 17.4801 5.21799 17.9079C5.40973 18.2842 5.71547 18.5905 6.0918 18.7822C6.5192 19 7.07899 19 8.19691 19H15.8031C16.921 19 17.48 19 17.9074 18.7822C18.2837 18.5905 18.5905 18.2839 18.7822 17.9076C19 17.4802 19 16.921 19 15.8031V14M20 9V4M20 4H15M20 4L13 11"
+                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                            </svg>
+                                        </div>
+                                    </a>
+                                    <a class="contact-item" href="https://www.linkedin.com/in/ceejaycicala" target="_blank" rel="noopener">
+                                        <div class="contact-left">
+                                            <img class="contact-logo" src="https://img.freepik.com/premium-vector/square-linkedin-logo-isolated-white-background_469489-892.jpg?semt=ais_hybrid&w=740&q=80" alt="">
+                                            <div class="contact-meta">
+                                                <div class="contact-type">LinkedIn</div>
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="contact-right">
+                                            <div class="contact-username">/in/ceejaycicala/</div>
+                                            <svg class="contact-action" viewBox="0 0 24 24" aria-hidden="true">
+                                                <path
+                                                    d="M10.0002 5H8.2002C7.08009 5 6.51962 5 6.0918 5.21799C5.71547 5.40973 5.40973 5.71547 5.21799 6.0918C5 6.51962 5 7.08009 5 8.2002V15.8002C5 16.9203 5 17.4801 5.21799 17.9079C5.40973 18.2842 5.71547 18.5905 6.0918 18.7822C6.5192 19 7.07899 19 8.19691 19H15.8031C16.921 19 17.48 19 17.9074 18.7822C18.2837 18.5905 18.5905 18.2839 18.7822 17.9076C19 17.4802 19 16.921 19 15.8031V14M20 9V4M20 4H15M20 4L13 11"
+                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                                            </svg>
+                                        </div>
+                                    </a>
+                                    <a class="contact-item" href="https://github.com/ceejaycicala" target="_blank" rel="noopener">
+                                        <div class="contact-left">
+                                            <img class="contact-logo" src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="">
+                                            <div class="contact-meta">
+                                                <div class="contact-type">GitHub</div>
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="contact-right">
+                                            <div class="contact-username">@ceejaycicala</div>
+                                            <svg class="contact-action" viewBox="0 0 24 24" aria-hidden="true">
+                                                <path
+                                                    d="M10.0002 5H8.2002C7.08009 5 6.51962 5 6.0918 5.21799C5.71547 5.40973 5.40973 5.71547 5.21799 6.0918C5 6.51962 5 7.08009 5 8.2002V15.8002C5 16.9203 5 17.4801 5.21799 17.9079C5.40973 18.2842 5.71547 18.5905 6.0918 18.7822C6.5192 19 7.07899 19 8.19691 19H15.8031C16.921 19 17.48 19 17.9074 18.7822C18.2837 18.5905 18.5905 18.2839 18.7822 17.9076C19 17.4802 19 16.921 19 15.8031V14M20 9V4M20 4H15M20 4L13 11"
+                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                                            </svg>
+                                        </div>
+                                    </a>
+                                    <a class="contact-item" href="https://www.instagram.com/ceejaycicala" target="_blank" rel="noopener">
+                                        <div class="contact-left">
+                                            <img class="contact-logo"
+                                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/960px-Instagram_logo_2022.svg.png"
+                                                alt="">
+                                            <div class="contact-meta">
+                                                <div class="contact-type">Instagram</div>
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="contact-right">
+                                            <div class="contact-username">@ceejaycicala</div>
+                                            <svg class="contact-action" viewBox="0 0 24 24" aria-hidden="true">
+                                                <path
+                                                    d="M10.0002 5H8.2002C7.08009 5 6.51962 5 6.0918 5.21799C5.71547 5.40973 5.40973 5.71547 5.21799 6.0918C5 6.51962 5 7.08009 5 8.2002V15.8002C5 16.9203 5 17.4801 5.21799 17.9079C5.40973 18.2842 5.71547 18.5905 6.0918 18.7822C6.5192 19 7.07899 19 8.19691 19H15.8031C16.921 19 17.48 19 17.9074 18.7822C18.2837 18.5905 18.5905 18.2839 18.7822 17.9076C19 17.4802 19 16.921 19 15.8031V14M20 9V4M20 4H15M20 4L13 11"
+                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                                            </svg>
+                                        </div>
+                                    </a>
+                                    <a class="contact-item" href="https://linktr.ee/ceejay.cicala" target="_blank" rel="noopener">
+                                        <div class="contact-left">
+                                            <img class="contact-logo"
+                                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZXSEmcTd8-GPGScldCZOlJC62y53gyiB8-Q&s"
+                                                alt="">
+                                            <div class="contact-meta">
+                                                <div class="contact-type">Linktree (Everything Else)</div>
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="contact-right">
+                                            <div class="contact-username">ceejay.cicala</div>
+                                            <svg class="contact-action" viewBox="0 0 24 24" aria-hidden="true">
+                                                <path
+                                                    d="M10.0002 5H8.2002C7.08009 5 6.51962 5 6.0918 5.21799C5.71547 5.40973 5.40973 5.71547 5.21799 6.0918C5 6.51962 5 7.08009 5 8.2002V15.8002C5 16.9203 5 17.4801 5.21799 17.9079C5.40973 18.2842 5.71547 18.5905 6.0918 18.7822C6.5192 19 7.07899 19 8.19691 19H15.8031C16.921 19 17.48 19 17.9074 18.7822C18.2837 18.5905 18.5905 18.2839 18.7822 17.9076C19 17.4802 19 16.921 19 15.8031V14M20 9V4M20 4H15M20 4L13 11"
+                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                                            </svg>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </section>

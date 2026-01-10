@@ -4,14 +4,15 @@
     FOOTER
 ------------------------------------------------------- */
 .footer {
-    transition: var(--transition-bg),
-        text 0.15s ease-in-out;
-    background: var(--bg-foot);
+    transition: var(--transition-bg), text 0.15s ease-in-out;
     color: var(--text);
     border-top: 1px solid var(--border-light);
     padding: 40px 0px;
     z-index: 1000;
-    /* position: relative; */
+    background:
+        radial-gradient(circle at 50% 115%, rgba(255, 166, 0, 0.85) 0%, transparent 100%),
+        var(--bg-foot);
+    background-blend-mode: overlay;
 }
 
 .footer span,
