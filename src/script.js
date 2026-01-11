@@ -2,11 +2,19 @@
 // Initialize Lenis
 const lenis = new Lenis({
     autoRaf: true,
+    duration: 1.2,        // Scroll animation duration in seconds
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Standard smooth easing
+    lerp: 0.1,            // Smoothing intensity (0 to 1); lower is smoother
+    wheelMultiplier: 1,   // Adjusts scroll sensitivity
+    infinite: false,      // Set to true for infinite scrolling
+    smoothWheel: true,    // Enables smoothing for mouse wheel events
+    syncTouch: false,     // Set true to mimic smooth scroll on touch devices
+    anchors: true,        // This enables smooth scrolling for anchor links automatically
 });
 
 // Listen for the scroll event and log the event data
 lenis.on('scroll', (e) => {
-    console.log(e);
+    // console.log(e);
 });
 
 // header
@@ -91,19 +99,13 @@ class THeader extends HTMLElement {
 customElements.define("t-header", THeader);
 
 // navbar scroll effect
-function updateNavScroll() {
-    const nav = document.querySelector(".nav-container");
-    if (!nav) return;
+const bar = document.querySelector('.nav-progress');
 
-    if (window.scrollY > 50) {
-        nav.classList.add("scrolled");
-    } else {
-        nav.classList.remove("scrolled");
-    }
-}
-
-window.addEventListener("load", updateNavScroll);
-window.addEventListener("scroll", updateNavScroll);
+window.addEventListener('scroll', () => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = (window.scrollY / max) * 100;
+    bar.style.width = progress + '%';
+});
 
 // ~~~ Clock ~~~
 function updateMelbourneTime() {
@@ -118,10 +120,10 @@ function updateMelbourneTime() {
 
     let timeString = new Intl.DateTimeFormat('en-AU', timeOptions).format(now);
 
-    // Convert to lowercase and add the dots
-    timeString = timeString.toLowerCase()
-        .replace('am', 'a.m.')
-        .replace('pm', 'p.m.');
+    // timeString = timeString.toLowerCase()
+    //     .replace('am', 'a.m.')
+    //     .replace('pm', 'p.m.');
+    timeString = timeString.toLowerCase();
 
     document.getElementById('time').textContent = timeString;
 }
@@ -175,7 +177,7 @@ class TFooter extends HTMLElement {
                                 </svg>
                                 
                                 <span>Melbourne, Australia. • </span>
-                                <span id="temp">20°C</span>
+                                <span class="temp">20°C</span>
                             </span> 
                         </div>
                         <span class="cursive">Such is Life</span>
@@ -183,28 +185,28 @@ class TFooter extends HTMLElement {
                 </div>
             </footer>
         `;
-
-        this.loadWeather();
-    }
-
-    loadWeather() {
-        const tempEl = this.querySelector("#temp");
-
-        fetch("https://api.open-meteo.com/v1/forecast?latitude=-37.8136&longitude=144.9631&current_weather=true")
-            .then(res => res.json())
-            .then(data => {
-                tempEl.textContent = `${Math.round(data.current_weather.temperature)}°C`;
-            })
-            .catch(() => {
-                tempEl.textContent = "&nbsp;";
-            });
     }
 }
 
 customElements.define("t-footer", TFooter);
-/* <svg id="mapmarker" class="topIcon" xmlns="http://www.w3.org/2000/svg" viewBox="-64 0 512 512" width="16" height="16">
-    <path fill="currentColor" d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z" />
-</svg> */
+
+function loadWeather() {
+    const tempEls = document.querySelectorAll(".temp");
+
+    fetch("https://api.open-meteo.com/v1/forecast?latitude=-37.8136&longitude=144.9631&current_weather=true")
+        .then(res => res.json())
+        .then(data => {
+            const temp = `${Math.round(data.current_weather.temperature)}°C`;
+            tempEls.forEach(el => el.textContent = temp);
+        })
+        .catch(() => {
+            tempEls.forEach(el => el.innerHTML = "&nbsp;");
+        });
+}
+
+// Call it once on page load
+loadWeather();
+
 
 
 // ~~~ Check for light mode ~~~

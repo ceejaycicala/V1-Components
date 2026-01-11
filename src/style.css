@@ -5,6 +5,24 @@
     src: url('Migra-Extrabold.ttf');
 }
 
+/* Lenis Config */
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
 /* -------------------------------------------------------
     ROOT & RESET
 ------------------------------------------------------- */
@@ -195,10 +213,6 @@ body {
     box-sizing: border-box;
 }
 
-html {
-    /* scroll-behavior: smooth; */
-}
-
 body {
     font: var(--text-p);
     background: var(--bg);
@@ -261,6 +275,18 @@ hr {
 
 .content-section {
     margin-bottom: 20px;
+}
+
+#experience, #projects, #education, #contact {
+    scroll-margin-top: 100px;
+}
+
+.anchor-offset {
+    position: relative;
+    top: -100px;
+    height: 0;
+    width: 0;
+    visibility: hidden;
 }
 
 /* -------------------------------------------------------
